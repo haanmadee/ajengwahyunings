@@ -1,0 +1,172 @@
+<!-- FULL 4-SLIDE CREATIVE SLIDER WITH COMPLEX MOTIONS + ARROWS -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Motion Slider</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {background:#000; overflow-x:hidden; font-family:sans-serif;}
+
+    /* WRAPPER */
+    .slider-wrapper {
+      position:relative;
+      width:100vw;
+      height:100vh;
+      overflow:hidden;
+    }
+
+    /* ARROWS */
+    .arrow {
+      position:absolute;
+      top:50%; transform:translateY(-50%);
+      width:40px; height:40px;
+      background:rgba(255,255,255,0.4);
+      backdrop-filter:blur(6px);
+      border-radius:50%; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      z-index:50;
+      transition:0.3s;
+    }
+    .arrow:hover { background:rgba(255,255,255,0.7); }
+    .arrow-right { right:20px; }
+    .arrow-left { left:20px; }
+
+    /* SLIDES CONTAINER */
+    .slides {
+      width:400vw;
+      height:100%;
+      display:flex;
+      transition:1s ease-in-out;
+    }
+
+    /* SINGLE SLIDE */
+    .slide {
+      position:relative;
+      width:100vw; height:100vh;
+      overflow:hidden;
+    }
+
+    /* LAYER UNIVERSAL */
+    .layer {
+      position:absolute;
+      width:auto;
+      max-width:80vw;
+      opacity:0;
+    }
+
+    /* ANIMATION CLASSES */
+    .fade-in { animation: fadeIn 1.2s forwards ease; }
+    @keyframes fadeIn { to {opacity:1;} }
+
+    .slide-up { animation: upAni 1.2s forwards ease; }
+    @keyframes upAni { from {transform:translateY(40px); opacity:0;} to {transform:translateY(0); opacity:1;} }
+
+    .slide-left { animation: leftAni 1.2s forwards ease; }
+    @keyframes leftAni { from {transform:translateX(60px); opacity:0;} to {transform:translateX(0); opacity:1;} }
+
+    .zoom-in { animation: zoomIn 1.2s forwards ease; }
+    @keyframes zoomIn { from {transform:scale(1.2); opacity:0;} to {transform:scale(1); opacity:1;} }
+
+    .rotate-in { animation: rotateIn 1.2s forwards ease; }
+    @keyframes rotateIn { from {transform:rotate(8deg) scale(1.2); opacity:0;} to {transform:rotate(0) scale(1); opacity:1;} }
+
+  </style>
+</head>
+<body>
+
+<div class="slider-wrapper">
+
+  <!-- ARROW BUTTONS -->
+  <div class="arrow arrow-left" onclick="prevSlide()">&#9664;</div>
+  <div class="arrow arrow-right" onclick="nextSlide()">&#9654;</div>
+
+  <!-- SLIDE CONTAINER -->
+  <div class="slides" id="slides">
+
+    <!-- SLIDE 1 -->
+    <div class="slide">
+      <img src="https://cdn.lynkid.my.id/draft-products/03-12-2025/1764736898754_9707475.png" class="layer fade-in" style="width:100vw; height:100vh; object-fit:cover; left:0; top:0; animation-delay:0.1s;" />
+      <img src="https://cdn.lynkid.my.id/draft-products/03-12-2025/1764736780062_9811222.png" class="layer slide-up" style="left:10vw; bottom:5vh; width:40vw; animation-delay:0.5s;" />
+      <img src="https://cdn.lynkid.my.id/draft-products/03-12-2025/1764736935336_6027343.png" class="layer fade-in" style="top:25vh; left:50%; transform:translateX(-50%); width:55vw; animation-delay:1.2s;" />
+      <img src="shape1.png" class="layer rotate-in" style="left:5vw; top:8vh; width:15vw; animation-delay:1.4s;" />
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide">
+      <img src="bg2.png" class="layer zoom-in" style="width:100vw; height:100vh; object-fit:cover; left:0; top:0; animation-delay:0.1s;" />
+      <img src="you2.png" class="layer slide-left" style="left:12vw; bottom:6vh; width:38vw; animation-delay:0.5s;" />
+      <img src="text2-title.png" class="layer slide-up" style="top:10vh; left:50%; transform:translateX(-50%); width:60vw; animation-delay:0.8s;" />
+      <img src="text2-sub.png" class="layer fade-in" style="top:25vh; left:50%; transform:translateX(-50%); width:50vw; animation-delay:1.1s;" />
+      <img src="shape2.png" class="layer zoom-in" style="right:6vw; top:12vh; width:17vw; animation-delay:1.3s;" />
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide">
+      <img src="bg3.png" class="layer fade-in" style="width:100vw; height:100vh; object-fit:cover; left:0; top:0; animation-delay:0.1s;" />
+      <img src="you3.png" class="layer rotate-in" style="left:14vw; bottom:5vh; width:42vw; animation-delay:0.5s;" />
+      <img src="client3.png" class="layer slide-up" style="right:10vw; bottom:5vh; width:34vw; animation-delay:0.7s;" />
+      <img src="text3-title.png" class="layer zoom-in" style="top:12vh; left:50%; transform:translateX(-50%); width:65vw; animation-delay:0.9s;" />
+      <img src="text3-sub.png" class="layer slide-left" style="top:28vh; left:50%; transform:translateX(-50%); width:55vw; animation-delay:1.1s;" />
+      <img src="shape3.png" class="layer fade-in" style="left:8vw; top:10vh; width:18vw; animation-delay:1.3s;" />
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide">
+      <img src="bg4.png" class="layer zoom-in" style="width:100vw; height:100vh; object-fit:cover; left:0; top:0; animation-delay:0.1s;" />
+      <img src="you4.png" class="layer slide-up" style="left:12vw; bottom:6vh; width:40vw; animation-delay:0.5s;" />
+      <img src="text4-title.png" class="layer rotate-in" style="top:12vh; left:50%; transform:translateX(-50%); width:62vw; animation-delay:0.9s;" />
+      <img src="text4-sub.png" class="layer fade-in" style="top:28vh; left:50%; transform:translateX(-50%); width:50vw; animation-delay:1.2s;" />
+      <img src="shape4.png" class="layer slide-left" style="right:8vw; top:14vh; width:16vw; animation-delay:1.4s;" />
+    </div>
+
+  </div>
+</div>
+
+<script>
+let currentSlide = 0;
+const slides = document.getElementById("slides");
+
+// ANIMATION FOR PAGE TRANSITION
+function animateSlideOut(slideIndex) {
+  const slide = document.querySelectorAll('.slide')[slideIndex];
+  const layers = slide.querySelectorAll('.layer');
+  layers.forEach((el, i) => {
+    el.style.transition = "0.8s ease";
+    el.style.transform = "translateY(-30px) scale(0.9)";
+    el.style.opacity = "0";
+  });
+}
+
+function animateSlideIn(slideIndex) {
+  const slide = document.querySelectorAll('.slide')[slideIndex];
+  const layers = slide.querySelectorAll('.layer');
+  layers.forEach((el, i) => {
+    el.style.transition = "0.8s ease";
+    el.style.transform = "translateY(0) scale(1)";
+    el.style.opacity = "1";
+  });
+}
+
+function updateSlider() {
+  slides.style.transition = "1s cubic-bezier(.25,.46,.45,.94)";
+  slides.style.transform = `translateX(-${currentSlide * 100}vw)`;
+  setTimeout(() => animateSlideIn(currentSlide), 200);
+}
+
+function nextSlide() {
+  animateSlideOut(currentSlide);
+  currentSlide = (currentSlide + 1) % 4;
+  updateSlider();
+}
+
+function prevSlide() {
+  animateSlideOut(currentSlide);
+  currentSlide = (currentSlide - 1 + 4) % 4;
+  updateSlider();
+}
+</script>
+
+</body>
+</html>
